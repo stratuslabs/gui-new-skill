@@ -22,16 +22,16 @@ Response: `{"id": "abc123", "url": "https://gui.new/abc123", "edit_token": "..."
 
 ## Input Formats
 
-Three ways to create a canvas — pick whichever fits the content:
+Three ways to create a canvas — pick whichever fits:
 
-**HTML** (most flexible):
+**HTML** (most flexible — use `<gui-*>` component tags directly):
 ```json
-{"html": "<h1>Hello</h1>", "title": "My Page"}
+{"html": "<gui-card title='Users' value='1,247'></gui-card><gui-chart type='bar' data='[{\"label\":\"Q1\",\"value\":42}]'></gui-chart>", "title": "My Page"}
 ```
 
-**Markdown** (rendered server-side with syntax highlighting, dark theme):
+**Markdown** (server-rendered — component tags work here too):
 ```json
-{"markdown": "# Hello\n\nThis is **bold** and `inline code`.", "title": "My Doc"}
+{"markdown": "# Hello\n\nThis is **bold** and `inline code`.\n\n<gui-card title='Status' value='Online'></gui-card>", "title": "My Doc"}
 ```
 
 **Mermaid diagrams** (rendered, pannable, zoomable):

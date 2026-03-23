@@ -68,22 +68,15 @@ Create tabbed canvases with multiple HTML views:
 
 The `html` field is the default view. Each frame appears as a tab in the viewer. Great for A/B comparisons, design variants, multi-step wizards.
 
-## Components API (POST)
+## Using Components
 
-Create canvases using structured component definitions instead of raw HTML:
+`<gui-*>` component tags work directly in both HTML and Markdown. No separate format needed:
 
 ```json
 {
-  "components": [
-    {"type": "card", "props": {"title": "Revenue", "value": "$12,450", "change": "+8.2%"}},
-    {"type": "chart", "props": {"type": "bar", "data": [{"label": "Q1", "value": 42}, {"label": "Q2", "value": 58}]}},
-    {"type": "table", "props": {"data": [{"name": "Alice", "role": "Eng"}, {"name": "Bob", "role": "PM"}]}}
-  ],
-  "layout": "grid-2",
+  "html": "<gui-grid columns='2'><gui-card title='Revenue' value='$12,450' change='+8.2%'></gui-card><gui-chart type='bar' data='[{\"label\":\"Q1\",\"value\":42}]'></gui-chart></gui-grid>",
   "title": "Dashboard"
 }
 ```
 
-Layout options: `grid-2`, `grid-3`, `stack`. Components can be mixed with raw HTML.
-
-Free tier: 6 component types. Pro: all 12+.
+See [components.md](components.md) for all available tags and attributes.

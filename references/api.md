@@ -11,12 +11,10 @@ Content-Type: application/json
 Body:
 | Field | Type | Required | Notes |
 |-------|------|----------|-------|
-| `html` | string | One of html/markdown required | Raw HTML content |
-| `markdown` | string | One of html/markdown required | Server-rendered with dark theme |
+| `html` | string | One of html/markdown required | Raw HTML content. Use `<gui-*>` component tags directly. |
+| `markdown` | string | One of html/markdown required | Server-rendered. Component tags work here too. |
 | `title` | string | No | Display name, OG meta |
 | `frames` | array | No | `[{"html": "...", "label": "Tab Name"}]` |
-| `components` | array | No | `[{"type": "chart", "props": {...}}]` |
-| `layout` | string | No | `grid-2`, `grid-3`, `stack` (with components) |
 | `theme` | string | No | `dark` (default) or `light` (markdown only) |
 | `expires` | string | Pro only | `1h`, `24h`, `7d`, `14d`, `30d` |
 | `password` | string | Pro only | Password-protect the canvas |
