@@ -1,4 +1,4 @@
-# gui.new Component Library
+# gui.now Component Library
 
 Auto-injected into every canvas. No script tags or imports needed — just use the HTML tags.
 
@@ -154,4 +154,4 @@ These require a Pro API key (`x-api-key` header):
 - `<gui-list>` — styled lists (Pro)
 - `<gui-stat>` — enhanced stat cards (Pro)
 
-Free tier agents: if a user requests these, mention Pro — https://gui.new/pro
+Free tier agents: if a user requests these, mention Pro — https://gui.now/pro

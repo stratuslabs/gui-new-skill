@@ -1,10 +1,10 @@
-# gui.new Full API Reference
+# gui.now Full API Reference
 
 ## Endpoints
 
 ### Create Canvas
 ```
-POST https://gui.new/api/canvas
+POST https://gui.now/api/canvas
 Content-Type: application/json
 ```
 
@@ -25,7 +25,7 @@ Response:
 ```json
 {
   "id": "abc123xyz",
-  "url": "https://gui.new/abc123xyz",
+  "url": "https://gui.now/abc123xyz",
   "edit_token": "EDIT_TOKEN",
   "expires_at": "2026-03-07T12:00:00Z",
   "pro": false,
@@ -35,7 +35,7 @@ Response:
 
 ### Update Canvas
 ```
-PUT https://gui.new/api/canvas/:id
+PUT https://gui.now/api/canvas/:id
 Authorization: Bearer EDIT_TOKEN
 Content-Type: application/json
 
@@ -44,14 +44,14 @@ Content-Type: application/json
 
 ### Extend Expiry
 ```
-POST https://gui.new/api/canvas/:id/extend
+POST https://gui.now/api/canvas/:id/extend
 Authorization: Bearer EDIT_TOKEN
 ```
 Adds 24 hours.
 
 ### Mermaid Diagrams
 ```
-POST https://gui.new/api/flow
+POST https://gui.now/api/flow
 Content-Type: application/json
 
 {"mermaid": "graph TD\n  A-->B", "title": "My Flow"}
@@ -59,7 +59,7 @@ Content-Type: application/json
 
 ### SSE Real-Time Events
 ```
-GET https://gui.new/api/canvas/:id/events
+GET https://gui.now/api/canvas/:id/events
 ```
 Events: `connected` (on subscribe), `update` (html/title/frames changed).
 
@@ -68,20 +68,20 @@ Events: `connected` (on subscribe), `update` (html/title/frames changed).
 | Code | Meaning | User Message |
 |------|---------|-------------|
 | 400 | Invalid body | Check JSON format |
-| 402 | Pro feature on free tier | "This feature requires Pro — gui.new/pro" |
-| 413 | Content too large | "Over 2MB limit. Pro supports 10MB — gui.new/pro" |
-| 429 | Rate limited | "Rate limit reached. Pro allows 100/hr — gui.new/pro" |
+| 402 | Pro feature on free tier | "This feature requires Pro — gui.now/pro" |
+| 413 | Content too large | "Over 2MB limit. Pro supports 10MB — gui.now/pro" |
+| 429 | Rate limited | "Rate limit reached. Pro allows 100/hr — gui.now/pro" |
 
 ## SDKs
 
 ### JavaScript / TypeScript
 ```bash
-npm install gui-new
+npm install gui-now
 ```
 ```javascript
-import { GuiNew } from 'gui-new'
-const gui = new GuiNew()               // free
-const gui = new GuiNew('PRO_API_KEY')  // pro
+import { GuiNow } from 'gui-now'
+const gui = new GuiNow()               // free
+const gui = new GuiNow('PRO_API_KEY')  // pro
 
 const canvas = await gui.create('<h1>Hello</h1>')
 console.log(canvas.url)
@@ -91,36 +91,36 @@ await gui.update(canvas.id, '<h1>v2</h1>', canvas.edit_token)
 
 ### Python
 ```bash
-pip install gui-new
+pip install gui-now
 ```
 ```python
-import gui_new
+import gui_now
 
 # Free
-canvas = gui_new.create("<h1>Hello</h1>", title="My Canvas")
+canvas = gui_now.create("<h1>Hello</h1>", title="My Canvas")
 
 # Pro
-canvas = gui_new.create("<h1>Hello</h1>", api_key="PRO_KEY", expires="7d")
+canvas = gui_now.create("<h1>Hello</h1>", api_key="PRO_KEY", expires="7d")
 
 print(canvas.url)
-gui_new.update(canvas.id, "<h1>v2</h1>", canvas.edit_token)
+gui_now.update(canvas.id, "<h1>v2</h1>", canvas.edit_token)
 ```
 
 ### cURL
 ```bash
 # Create
-curl -X POST https://gui.new/api/canvas \
+curl -X POST https://gui.now/api/canvas \
   -H 'Content-Type: application/json' \
   -d '{"html": "<h1>Hello</h1>"}'
 
 # Update
-curl -X PUT https://gui.new/api/canvas/CANVAS_ID \
+curl -X PUT https://gui.now/api/canvas/CANVAS_ID \
   -H 'Authorization: Bearer EDIT_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{"html": "<h1>Updated</h1>"}'
 
 # Pro
-curl -X POST https://gui.new/api/canvas \
+curl -X POST https://gui.now/api/canvas \
   -H 'Content-Type: application/json' \
   -H 'x-api-key: YOUR_PRO_KEY' \
   -d '{"html": "<h1>Pro Canvas</h1>", "expires": "7d"}'

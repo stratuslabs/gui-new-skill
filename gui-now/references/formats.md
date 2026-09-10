@@ -1,4 +1,4 @@
-# gui.new Input Formats
+# gui.now Input Formats
 
 ## HTML
 
@@ -15,7 +15,7 @@ Tips:
 - Use complete HTML documents with `<html><head><style>` for complex layouts
 - Inline all CSS — no external stylesheets
 - JavaScript works — build interactive tools, not just static pages
-- gui.new components (`<gui-chart>`, etc.) are auto-injected, just use the tags
+- gui.now components (`<gui-chart>`, etc.) are auto-injected, just use the tags
 
 ## Markdown
 
@@ -37,7 +37,7 @@ Optional `"theme": "light"` (default is `"dark"`).
 Rendered as pannable, zoomable SVG. Use the `/api/flow` endpoint:
 
 ```
-POST https://gui.new/api/flow
+POST https://gui.now/api/flow
 Content-Type: application/json
 
 {
