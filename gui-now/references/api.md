@@ -76,17 +76,17 @@ Events: `connected` (on subscribe), `update` (html/title/frames changed).
 
 ### JavaScript / TypeScript
 ```bash
-npm install gui-now
+npm install gui-now-sdk
 ```
 ```javascript
-import { GuiNow } from 'gui-now'
-const gui = new GuiNow()               // free
-const gui = new GuiNow('PRO_API_KEY')  // pro
+import { createGui } from 'gui-now-sdk'
+const gui = createGui()                           // free
+const gui = createGui({ apiKey: 'PRO_API_KEY' })  // pro
 
-const canvas = await gui.create('<h1>Hello</h1>')
+const canvas = await gui.create({ html: '<h1>Hello</h1>' })
 console.log(canvas.url)
 
-await gui.update(canvas.id, '<h1>v2</h1>', canvas.edit_token)
+await gui.update(canvas.id, canvas.edit_token, { html: '<h1>v2</h1>' })
 ```
 
 ### Python
