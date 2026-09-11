@@ -1,6 +1,6 @@
-# gui.now skills
+# GUI skills
 
-Agent skills for [gui.now](https://gui.now) — HTML in, URL out.
+Agent skills for [GUI](https://gui.now) — HTML in, URL out.
 
 One directory per skill. Copy the one you want into your agent's skills
 directory, or clone the whole repo in place.
